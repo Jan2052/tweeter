@@ -1,0 +1,31 @@
+nav {
+  position: fixed;
+  height: 120px;
+  color: #FFFFFF;
+  background-color: #4056A1;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  width: 100%;
+}
+
+span1 {
+  font-family: 'Bungee', sans-serif;
+  padding: 1.5em;
+  justify-content: left;
+}
+
+span2 {
+  font-family: 'Source Sans Pro', sans-serif;
+  padding: 1.5em;
+  justify-content: right;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.fa-solid, .fas {
+  align-items:flex-end;
+  color: red;
+}
+
