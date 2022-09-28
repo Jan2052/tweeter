@@ -1,52 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Meta Information -->
-    <title>Tweeter - Home Page</title>
 
-    <!-- External CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@1,300;1,600&display=swap" rel="stylesheet">
+<head>
+  <!-- Meta Information -->
+  <title>Tweeter - Home Page</title>
 
-    <!-- App CSS -->
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+  <!-- External CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    type="text/css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@1,300;1,600&display=swap"
+    rel="stylesheet">
 
-    <!-- External JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- App CSS -->
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
 
-    <!-- App JS -->
-    <script type="text/javascript" src="/scripts/client.js"></script>
-  </head>
+  <!-- External JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <body>
-<!-- -------------Top nav bar (fixed)----------------- -->
-    <nav>
-      <span1>tweeter</span1>
-      <span2>
-        Write a new tweet<br>
-        <i class="fa-solid fa-angles-down"></i>
-      </span2>
-    </nav>
-<!-- -----------------------HEADER--------------------- -->
-    <header>
-      <div>
-          <img src="/images/profile-hex.png"> 
-      </div>
-      <br>
-      <div>
-          <h2>Janet Lam</h2>
-      </div>
+  <!-- App JS -->
+  <script type="text/javascript" src="/scripts/client.js"></script>
+  <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+</head>
+
+<body>
+  <!-- -------------Top nav bar (fixed)----------------- -->
+  <nav>
+    <span1>tweeter</span1>
+    <span2>
+      Write a new tweet<br>
+      <i class="fa-solid fa-angles-down"></i>
+    </span2>
+  </nav>
+  <!-- -----------------------HEADER--------------------- -->
+  <header class="page-header">
+    <div>
+      <img src="/images/profile-hex.png">
+    </div>
+    <div>
+      <h2>Janet Lam</h2>
+    </div>
   </header>
 
-<!-- -------- Page-specific (main) content here ------- -->
-    <main class="container">
-      <h3>HODOR IPSUM</h3>
-      <p>Hodor. Hodor hodor, hodor. Hodor hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor; hodor hodor hodor. Hodor. Hodor hodor; hodor hodor - hodor, hodor, hodor hodor. Hodor, hodor. Hodor. Hodor, hodor hodor hodor; hodor hodor; hodor hodor hodor! Hodor hodor HODOR! Hodor hodor... Hodor hodor hodor...</p>
-    </main>
-  </body>
+  <!-- -------- Page-specific (main) content here ------- -->
+  <main class="container">
+    <section class="new-tweet">
+      <h2>What are you humming about?</h2>
+      <form method="POST" action="/tweets">
+        <div class="form-group">
+          <label for="tweet-text"></label>
+          <textarea name="text" id="tweet-text"></textarea>
+          <div class="button-counter">
+            <button type="submit">Tweet</button>
+            <output name="counter" class="counter" for="tweet-text">140</output>
+          </div>
+        </div>
+        <br><br>
+      </form>
+      <article class="tweet">
+        <div class="article-margin">
+          <header class="tweet-header">
+            <span><img class="avatar" src="https://i.imgur.com/nlhLi3I.png"> &nbsp;&nbsp; Name</span>
+            <h3 class="username">@user</h3>
+          </header>
+
+          <section class="tweet-text">
+            Hello World
+          </section>
+          <hr>
+
+          <footer>
+            <span>10 days ago</span>
+            <div class="icons">
+              <i class="fa-solid fa-flag"></i>
+              <i class="fa-solid fa-retweet"></i>
+              <i class="fa-solid fa-heart"></i>
+            </div>
+          </footer>
+        </div>
+      </article>
+
+    </section>
+  </main>
+</body>
+
 </html>
