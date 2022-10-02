@@ -54,6 +54,7 @@ hr {
 
 .tweet {
   border-style: solid;
+  margin-bottom: 1em;
 }
 
 .tweet:hover {
@@ -81,4 +82,9 @@ footer {
 
 .username {
   color: #4057a14a;
+}
+
+.error-message {
+  font-size: smaller;
+  color: red;
 }

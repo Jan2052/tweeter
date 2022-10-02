@@ -12,7 +12,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@1,300;1,600&display=swap"
     rel="stylesheet">
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"
+    integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <!-- App CSS -->
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
   <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
@@ -20,7 +22,8 @@
   <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
 
   <!-- External JS -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
     integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -53,9 +56,19 @@
   <main class="container">
     <section class="new-tweet">
       <h2>What are you humming about?</h2>
-      <form method="POST" action="/tweets">
+      <form id="tweet-form" method="POST" action="/tweets" maxlength="5">
         <div class="form-group">
           <label for="tweet-text"></label>
+
+          <div id="too-long-error">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            Message has exceeded the 140 characters limit!
+          </div>
+          <div id="no-message-error">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            Cannot post empty tweet!
+          </div>
+
           <textarea name="text" id="tweet-text"></textarea>
           <div class="button-counter">
             <button type="submit">Tweet</button>
@@ -64,31 +77,14 @@
         </div>
         <br><br>
       </form>
-      <article class="tweet">
-        <div class="article-margin">
-          <header class="tweet-header">
-            <span><img class="avatar" src="https://i.imgur.com/nlhLi3I.png"> &nbsp;&nbsp; Name</span>
-            <h3 class="username">@user</h3>
-          </header>
+      <article class="tweets-container">
 
-          <section class="tweet-text">
-            Hello World
-          </section>
-          <hr>
-
-          <footer>
-            <span>10 days ago</span>
-            <div class="icons">
-              <i class="fa-solid fa-flag"></i>
-              <i class="fa-solid fa-retweet"></i>
-              <i class="fa-solid fa-heart"></i>
-            </div>
-          </footer>
-        </div>
       </article>
-
     </section>
   </main>
+  <script>
+
+  </script>
 </body>
 
 </html>
