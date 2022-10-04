@@ -5,6 +5,10 @@ button {
   border: 0;
 }
 
+button:hover {
+  background-color: #e4941c;
+}
+
 .container {
   width: 90%;
 }
@@ -30,7 +34,6 @@ textarea {
   display: flex;
   justify-content: space-between;
 }
-
 
 .tweet-header {
   display: flex;
@@ -70,6 +73,7 @@ footer {
   margin-top: 7px;
   display: flex;
   justify-content: space-between;
+  font-size: initial;
 }
 
 .icons i {
@@ -84,7 +88,7 @@ footer {
   color: #4057a14a;
 }
 
-.error-message {
+[id^='error'] {
   font-size: smaller;
   color: red;
 }

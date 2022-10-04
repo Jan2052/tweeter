@@ -9,3 +9,12 @@
   background-image: url("https://www.transparenttextures.com/patterns/ag-square.png");
 }
 
+@media only screen and (min-width: 1024px) {
+  .page-header {
+    height: 400px;
+    width: 50%;
+    margin: 5%;
+    margin-top: 8em;
+    justify-content: flex-end;
+  }
+}

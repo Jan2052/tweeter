@@ -5,6 +5,7 @@
  */
 
 $(document).ready(function() {
+
   //TWEET TEMPLATE
   const createTweetElement = (data) => {
     const $tweet = `<article class="tweet">
@@ -15,7 +16,7 @@ $(document).ready(function() {
             </header>
   
             <section class="tweet-text">
-            <p>${safeHTML(data.content.text)}</p>
+            ${safeHTML(data.content.text)}
             </section>
             <hr>
   
@@ -32,62 +33,61 @@ $(document).ready(function() {
           `;
     return $tweet;
   };
-// HTML ENCYPTION
-  const safeHTML = function (str) {
+
+  const safeHTML = function(str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   };
 
-// RENDER
   const renderTweets = ($tweets) => {
     $('.tweets-container').empty();
+    $tweets.sort((a, b) => b.created_at - a.created_at);
     for (const key in $tweets) {
       let tweet = createTweetElement($tweets[key]);
       $('.tweets-container').append(tweet);
     }
   };
 
-  // ERROR MESSAGE - hidden
   const hiddenErrors = () => {
-  $('#too-long-error').hide()
-  $('#no-message-error').hide()
+    $('#error-too-long').hide()
+    $('#error-no-message').hide()
   }
-hiddenErrors()
+  hiddenErrors()
 
-  // SUBMIT - Stops page redirect and submits new tweets
   $('#tweet-form').submit(function(event) {
     event.preventDefault();
 
     const data = $(this).serialize(); //helper function turns foreign data into a specific format
+    const tweet = $('textarea#tweet-text').val()
 
-    hiddenErrors()
-    if ($('textarea#tweet-text').val().length > 140) {
-      $('#too-long-error').show()
+    hiddenErrors();
+    if (tweet.length > 140) {
+      $('#error-too-long').fadeIn()
       return;
-    }
+    };
 
-    if (!$('textarea#tweet-text').val()) {
-      $('#no-message-error').show()
+    if (!tweet) {
+      $('#error-no-message').fadeIn()
       return;
-    }
+    };
 
     $.ajax({
       method: 'POST',
       data,
       url: '/tweets',
-      success: function() {
+      success: function () {
         loadtweets();
-        alert('successfully submitted');
       },
-      error: function() {
-        alert('submittion unsuccessful');
+      error: function () {
       }
     });
+
+    this.reset();
+    $(".counter").text(140);
     loadtweets();
   });
 
-  // LOAD TWEET
   const loadtweets = () => {
     $.ajax({ method: 'GET', url: '/tweets' })
       .then((body) => {

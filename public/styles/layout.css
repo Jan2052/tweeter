@@ -6,7 +6,10 @@
 html {
   box-sizing: border-box;
 }
-*, *:before, *:after {
+
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -20,14 +23,25 @@ body {
   font-size: 24px;
 }
 
-
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
- body {
+body {
   display: flex;
   font-family: 'Source Sans Pro', sans-serif;
   flex-direction: column;
   align-items: center;
+  word-break: break-word;
 }
 
+@media only screen and (min-width: 1024px) {
+  body {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  main {
+    margin: 5%;
+    margin-top: 7em;
+  }
+}
