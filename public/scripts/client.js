@@ -50,36 +50,36 @@ $(document).ready(function() {
   };
 
   const hiddenErrors = () => {
-    $('#error-too-long').hide()
-    $('#error-no-message').hide()
+    $('#error-too-long').hide();
+    $('#error-no-message').hide();
   }
-  hiddenErrors()
+  hiddenErrors();
 
   $('#tweet-form').submit(function(event) {
     event.preventDefault();
 
     const data = $(this).serialize(); //helper function turns foreign data into a specific format
-    const tweet = $('textarea#tweet-text').val()
+    const tweet = $('textarea#tweet-text').val();
 
     hiddenErrors();
     if (tweet.length > 140) {
-      $('#error-too-long').fadeIn()
+      $('#error-too-long').fadeIn();
       return;
-    };
+    }
 
     if (!tweet) {
-      $('#error-no-message').fadeIn()
+      $('#error-no-message').fadeIn();
       return;
-    };
+    }
 
     $.ajax({
       method: 'POST',
       data,
       url: '/tweets',
-      success: function () {
+      success: function() {
         loadtweets();
       },
-      error: function () {
+      error: function() {
       }
     });
 
