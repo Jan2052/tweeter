@@ -1,9 +1,9 @@
 .page-header {
-  height: 520px;
+  height: 400px;
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   flex-direction: column;
   background-color: #edd8be;
   background-image: url("https://www.transparenttextures.com/patterns/ag-square.png");
@@ -11,8 +11,6 @@
 
 @media only screen and (min-width: 1024px) {
   .page-header {
-    height: 400px;
-    width: 50%;
     margin: 5%;
     margin-top: 8em;
     justify-content: flex-end;

@@ -9,8 +9,10 @@ button:hover {
   background-color: #e4941c;
 }
 
-.container {
-  width: 90%;
+main {
+  width: 90%;    
+  display: flex;
+  justify-content: center;
 }
 
 textarea {
